@@ -52,7 +52,7 @@ var aoa = convert.sheetToAoa(sheetData);
  */
 ```
 
-### convert.aoaToSheet(data)
+### aoaToSheet(data)
 
 #### data
 
@@ -63,7 +63,7 @@ Type: Array
 ```js
 var convert = require('csf-convert');
 
-var sheetData = [
+var aoa = [
   [
     { t: 's', v: 'A1' },
     undefined,
@@ -79,7 +79,7 @@ var sheetData = [
   ]
 ]
 
-var aoa = convert.aoaToSheet(sheetData);
+var sheetData = convert.aoaToSheet(sheetData);
 /* result:
 {
   A1: { t: 's', v: 'A1' },
