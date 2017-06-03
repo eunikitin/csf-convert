@@ -76,3 +76,59 @@ describe('sheetToAoa', () => {
     });
   });
 });
+
+describe('aoaToSheet', () => {
+  describe('1x1', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+  });
+
+  describe('2x2', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+  });
+
+  describe('1x1 with offset', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+  });
+
+  describe('2x2 with offset', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+  });
+
+  describe('5x2', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+  });
+
+  describe('5x2 with missing elements', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+  });
+});
