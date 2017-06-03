@@ -7,7 +7,16 @@
 ## Install
 ```npm install csf-convert```
 
-## Usage
+## API
+
+### sheetToAoa(data)
+
+#### data
+
+**Required**
+
+Type: object
+
 ```js
 var convert = require('csf-convert');
 
@@ -23,7 +32,7 @@ var sheetData = {
   '!ref': 'A1:E2',
 };
 
-var aoa = convert(sheetData);
+var aoa = convert.sheetToAoa(sheetData);
 /* result:
 [
   [
@@ -40,5 +49,48 @@ var aoa = convert(sheetData);
     { t: 's', v: 'E2' }
   ]
 ]
+ */
+```
+
+### convert.aoaToSheet(data)
+
+#### data
+
+**Required**
+
+Type: Array
+
+```js
+var convert = require('csf-convert');
+
+var sheetData = [
+  [
+    { t: 's', v: 'A1' },
+    undefined,
+    { t: 's', v: 'C1' },
+    { t: 's', v: 'D1' },
+    { t: 's', v: 'E1' } ],
+  [
+    { t: 's', v: 'A2' },
+    { t: 's', v: 'B2' },
+    { t: 's', v: 'C2' },
+    undefined,
+    { t: 's', v: 'E2' }
+  ]
+]
+
+var aoa = convert.aoaToSheet(sheetData);
+/* result:
+{
+  A1: { t: 's', v: 'A1' },
+  C1: { t: 's', v: 'C1' },
+  D1: { t: 's', v: 'D1' },
+  E1: { t: 's', v: 'E1' },
+  A2: { t: 's', v: 'A2' },
+  B2: { t: 's', v: 'B2' },
+  C2: { t: 's', v: 'C2' },
+  E2: { t: 's', v: 'E2' },
+  '!ref': 'A1:E2',
+}
  */
 ```
