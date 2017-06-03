@@ -1,6 +1,6 @@
 {
   "name": "csf-convert",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Convert utilities for Common Spreadsheet Format data",
   "keywords": [
     "common-spreadsheet-format",
