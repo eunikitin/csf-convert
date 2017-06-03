@@ -26,16 +26,18 @@ function aoaToSheet(aoa) {
   let maxColumn = -1;
 
   aoa.forEach((row, rowIndex) => {
-    row.forEach((column, colIndex) => {
-      const cell = parseCell({ row: rowIndex + 1, column: colIndex + 1 });
-      if (column) {
-        if (minRow > rowIndex || minRow < 0) minRow = rowIndex;
-        if (minColumn > colIndex || minColumn < 0) minColumn = colIndex;
-        if (maxRow < rowIndex || maxRow < 0) maxRow = rowIndex;
-        if (maxColumn < colIndex || maxColumn < 0) maxColumn = colIndex;
-        data[cell] = column;
-      }
-    });
+    if (row) {
+      row.forEach((column, colIndex) => {
+        const cell = parseCell({ row: rowIndex + 1, column: colIndex + 1 });
+        if (column) {
+          if (minRow > rowIndex || minRow < 0) minRow = rowIndex;
+          if (minColumn > colIndex || minColumn < 0) minColumn = colIndex;
+          if (maxRow < rowIndex || maxRow < 0) maxRow = rowIndex;
+          if (maxColumn < colIndex || maxColumn < 0) maxColumn = colIndex;
+          data[cell] = column;
+        }
+      });
+    }
   });
 
   if (minRow >= 0 && minColumn >= 0 && maxRow >= 0 && maxColumn >= 0) {

@@ -81,36 +81,37 @@ describe('aoaToSheet', () => {
   describe('1x1', () => {
     it('should convert array of arrays to data object', () => {
       expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])).to.deep.equal(sheet5x2Data);
+        sheet1x1Aoa[1],
+      ])).to.deep.equal(sheet1x1Data);
     });
   });
 
   describe('2x2', () => {
     it('should convert array of arrays to data object', () => {
       expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])).to.deep.equal(sheet5x2Data);
+        sheet2x2Aoa[1],
+        sheet2x2Aoa[2],
+      ])).to.deep.equal(sheet2x2Data);
     });
   });
 
   describe('1x1 with offset', () => {
     it('should convert array of arrays to data object', () => {
       expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])).to.deep.equal(sheet5x2Data);
+        undefined,
+        [undefined, sheet1x1OffsetAoa[2][0]],
+      ])).to.deep.equal(sheet1x1OffsetData);
     });
   });
 
   describe('2x2 with offset', () => {
     it('should convert array of arrays to data object', () => {
       expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])).to.deep.equal(sheet5x2Data);
+        undefined,
+        undefined,
+        [undefined, undefined, sheet2x2OffsetAoa[3][0], sheet2x2OffsetAoa[3][1]],
+        [undefined, undefined, sheet2x2OffsetAoa[4][0], sheet2x2OffsetAoa[4][1]],
+      ])).to.deep.equal(sheet2x2OffsetData);
     });
   });
 
@@ -126,9 +127,9 @@ describe('aoaToSheet', () => {
   describe('5x2 with missing elements', () => {
     it('should convert array of arrays to data object', () => {
       expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])).to.deep.equal(sheet5x2Data);
+        sheet5x2MissingAoa[1],
+        sheet5x2MissingAoa[2],
+      ])).to.deep.equal(sheet5x2MissingData);
     });
   });
 });
