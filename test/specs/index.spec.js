@@ -38,6 +38,15 @@ describe('sheetToAoa', () => {
     });
   });
 
+  describe('5x2', () => {
+    it('should convert data object to array of arrays', () => {
+      expect(library.sheetToAoa(sheet5x2Data)).to.deep.equal([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ]);
+    });
+  });
+
   describe('1x1 with offset', () => {
     it('should convert data object to array of arrays', () => {
       expect(library.sheetToAoa(sheet1x1OffsetData)).to.deep.equal([
@@ -54,15 +63,6 @@ describe('sheetToAoa', () => {
         undefined,
         [undefined, undefined, sheet2x2OffsetAoa[3][0], sheet2x2OffsetAoa[3][1]],
         [undefined, undefined, sheet2x2OffsetAoa[4][0], sheet2x2OffsetAoa[4][1]],
-      ]);
-    });
-  });
-
-  describe('5x2', () => {
-    it('should convert data object to array of arrays', () => {
-      expect(library.sheetToAoa(sheet5x2Data)).to.deep.equal([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
       ]);
     });
   });
@@ -108,6 +108,22 @@ describe('aoaToSheet', () => {
     });
   });
 
+  describe('5x2', () => {
+    it('should convert array of arrays to data object', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])).to.deep.equal(sheet5x2Data);
+    });
+
+    it('should set ref as minimum:maximum cell names', () => {
+      expect(library.aoaToSheet([
+        sheet5x2Aoa[1],
+        sheet5x2Aoa[2],
+      ])['!ref']).to.equal('A1:E2');
+    });
+  });
+
   describe('1x1 with offset', () => {
     it('should convert array of arrays to data object', () => {
       expect(library.aoaToSheet([
@@ -141,22 +157,6 @@ describe('aoaToSheet', () => {
         [undefined, undefined, sheet2x2OffsetAoa[3][0], sheet2x2OffsetAoa[3][1]],
         [undefined, undefined, sheet2x2OffsetAoa[4][0], sheet2x2OffsetAoa[4][1]],
       ])['!ref']).to.equal('C3:D4');
-    });
-  });
-
-  describe('5x2', () => {
-    it('should convert array of arrays to data object', () => {
-      expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])).to.deep.equal(sheet5x2Data);
-    });
-
-    it('should set ref as minimum:maximum cell names', () => {
-      expect(library.aoaToSheet([
-        sheet5x2Aoa[1],
-        sheet5x2Aoa[2],
-      ])['!ref']).to.equal('A1:E2');
     });
   });
 
